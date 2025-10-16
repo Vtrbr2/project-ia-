@@ -1,0 +1,5 @@
+NODE_ENV = production
+MONGODB_URI = sua_uri_mongodb_atlas
+JWT_SECRET = seu_jwt_secret_producao
+PORT = 10000
+FRONTEND_URL = https://seu-app.onrender.com
