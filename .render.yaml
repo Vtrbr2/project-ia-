@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: content-manager-ai
+    env: node
+    plan: free
+    region: ohio
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        fromDatabase:
+          name: content-manager-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        value: https://content-manager-ai.onrender.com
+
+databases:
+  - name: content-manager-db
+    plan: free
+    databaseName: contentmanager
+    user: contentmanager
